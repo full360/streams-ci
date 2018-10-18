@@ -26,12 +26,12 @@ endif
 # stream specific functionality
 build: ;
 
-tag: ;
-
-push: ;
-
 build: build-$(STREAM_NAME) getstreams
 
+tag: ;
+
 tag: tag-$(STREAM_NAME) getstreams
+
+push: ;
 
 push: push-$(STREAM_NAME) getstreams
