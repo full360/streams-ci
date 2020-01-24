@@ -35,3 +35,20 @@ tag: tag-$(STREAM_NAME) getstreams
 push: ;
 
 push: push-$(STREAM_NAME) getstreams
+
+
+plan-nomad: ;
+
+.PHONY: plan
+plan-nomad:
+	@for x in $(NOMAD_JOBS); do \
+	  nomad-helper.sh plan $(CURDIR)/ogs-consumer/nomad/$$x.nomad; \
+	done
+
+deploy-nomad: ;
+
+.PHONY: deploy
+deploy-nomad:
+	@for x in $(NOMAD_JOBS); do \
+		nomad-helper.sh run $(CURDIR)/ogs-consumer/nomad/$$x.nomad; \
+	done
