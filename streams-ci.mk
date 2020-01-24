@@ -39,7 +39,7 @@ push: push-$(STREAM_NAME) getstreams
 
 plan-nomad: ;
 
-.PHONY: plan
+.PHONY: plan-nomad
 plan-nomad:
 	@for x in $(NOMAD_JOBS); do \
 	  nomad-helper.sh plan $(CURDIR)/ogs-consumer/nomad/$$x.nomad; \
@@ -47,7 +47,7 @@ plan-nomad:
 
 deploy-nomad: ;
 
-.PHONY: deploy
+.PHONY: deploy-nomad
 deploy-nomad:
 	@for x in $(NOMAD_JOBS); do \
 		nomad-helper.sh run $(CURDIR)/ogs-consumer/nomad/$$x.nomad; \
